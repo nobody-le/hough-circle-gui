@@ -24,3 +24,11 @@
 - [x] 4.1 运行 GUI，加载 coins.jpg 与 cookie-plate.jpg，确认标注 2 圆/1 圆并导出截图。
 - [x] 4.2 更新 README 的运行、测试、验收参数与目录说明。
 - [x] 4.3 提交实现并保持工作区干净。
+
+## 验收记录
+
+- 2026-11-13：`python3 -m unittest discover -s tests -v` → 7 tests OK。
+- 2026-11-13：`examples/coins.jpg` + Coins 预设 → 2 圆，圆心约 `(193, 193, r180)`、`(567, 191, r179)`；导出 `docs/acceptance/coins-annotated.png`。
+- 2026-11-13：`examples/cookie-plate.jpg` + Cookie Plate 预设 → 1 圆，圆心约 `(263, 259, r245)`；导出 `docs/acceptance/cookie-plate-annotated.png`。
+- 2026-11-13：GUI 启动并进入事件循环；`minDist=800` 使硬币图从 2 圆变为 1 圆。
+- 2026-11-13：`openspec validate add-hough-circle-gui --strict` → valid。
