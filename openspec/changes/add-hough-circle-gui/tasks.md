@@ -8,9 +8,9 @@
 
 ## 2. 检测核心
 
-- [ ] 2.1 实现 `detect_circles` 与 `annotate_image`；用两张示例图验证分别得到 2/1 个圆。
-- [ ] 2.2 实现硬币、饼干盘、通用预设；验证参数值符合设计。
-- [ ] 2.3 添加 unittest，覆盖两图圆数量、标注尺寸和参数校验；`python3 -m unittest discover -s tests -v` 通过。
+- [x] 2.1 实现 `detect_circles` 与 `annotate_image`；用两张示例图验证分别得到 2/1 个圆。
+- [x] 2.2 实现硬币、饼干盘、通用预设；验证参数值符合设计。
+- [x] 2.3 添加 unittest，覆盖两图圆数量、标注尺寸和参数校验；`python3 -m unittest discover -s tests -v` 通过。
 
 ## 3. 图形界面
 
