@@ -22,7 +22,7 @@ python3 -m unittest discover -s tests -v
 
 - `main.py`：图形界面入口。
 - `hough_circle_gui/detector.py`：纯检测逻辑，禁止依赖 Tkinter。
-- `hough_circle_gui/presets.py`：硬币与饼干盘参数预设。
+- `hough_circle_gui/presets.py`：硬币、饼干盘和通用（Auto）参数预设。
 - `hough_circle_gui/app.py`：Tkinter 界面、预览与导出。
 - `tests/`：检测逻辑与验收场景测试。
 - `examples/`：验收图片与来源说明。

@@ -2,6 +2,8 @@
 
 基于 OpenCV 的霍夫圆检测图形工具：导入实拍图片，调整检测参数，实时预览标注结果，并导出标注图。
 
+> 当前状态（2026-11-17）：图片模式已完成并验收；视频导入检测尚未实现，需求与实施步骤见 [`openspec/changes/add-video-detection/`](openspec/changes/add-video-detection/)。交付分支为 `feat/video-detection`；接手人先读该目录的 `tasks.md`，从第 1 组开始。
+
 ## 功能
 
 - 导入 JPG、JPEG、PNG、BMP 图片。
@@ -44,12 +46,24 @@ python3 main.py
 
 - `Open Image` 选择本地图片。
 - `Coins Sample` / `Plate Sample` 载入验收图片并自动应用预设。
-- `Preset` 切换 `Auto`、`Coins`、`Cookie Plate` 或手动参数。
+- `Preset` 切换 `Auto`、`Coins`、`Cookie Plate` 或 `Custom`；`Custom` 由滑块自动切到。
+- `Reset Params` 恢复 `Auto` 预设。
 - 六个滑块调整检测参数；停止拖动约 150 ms 后自动刷新。
 - `Detect` 立即重新检测。
 - `Export Annotated` 导出当前标注图。
 
 界面标签使用英文；本机未安装中文字体，避免 Tk 显示方框。
+
+## 样例
+
+两张验收图已随仓库提供，不需要联网或额外下载：
+
+- `examples/coins.jpg`（760×385）：两枚硬币。
+- `examples/cookie-plate.jpg`（520×520）：一个饼干盘。
+
+GUI 的 `Coins Sample` / `Plate Sample` 按钮直接载入这两张图；也可以从 `examples/` 手动打开。来源与许可见 [examples/SOURCES.md](examples/SOURCES.md)。
+
+视频样例尚未入库。实现视频功能时优先由上述两张图生成 2–5 秒片段，生成命令、大小和校验值记录在 `openspec/changes/add-video-detection/tasks.md` 的 1.1。
 
 ## 测试
 
@@ -57,7 +71,7 @@ python3 main.py
 python3 -m unittest discover -s tests -v
 ```
 
-当前结果：7 个测试全部通过。
+当前结果：7 个测试全部通过（2026-11-17 复核）。
 
 ## 验收
 
@@ -90,14 +104,18 @@ python3 -m unittest discover -s tests -v
 - 导出到不可写路径会提示错误，不崩溃。
 - `openspec validate add-hough-circle-gui --strict` 通过。
 
+## 当前限制与交接
+
+- 图片模式已实现并验收；视频模式只有 OpenSpec 规划，尚无视频相关代码。
+- 上述验收只在 Ubuntu 24.04.5 LTS（WSL2 + X11）完成；Windows、macOS、高 DPI、4K 大图和更多实拍场景未验证。
+- 检测在 UI 线程执行，大图可能短暂卡顿；导出只覆盖当前图片，没有批量或视频导出。
+- 完整未验证事项和后续待办见两个 change 的 `tasks.md` 末尾。
+- 接手顺序：运行测试和两张示例图验收 → 阅读 `add-hough-circle-gui/tasks.md` 的完成进度 → 按 `add-video-detection/tasks.md` 从 1.1 开始 → 完成后更新验收记录和本 README。
+
 ## OpenSpec 记录
 
-变更目录：[`openspec/changes/add-hough-circle-gui/`](openspec/changes/add-hough-circle-gui/)
-
-- `proposal.md`：为什么做、范围与能力。
-- `specs/hough-circle-gui/spec.md`：规格确认与验收场景。
-- `design.md`：Tkinter/OpenCV 分层、预设与导出方案。
-- `tasks.md`：实施进度、完成状态与实际验收记录。
+- [`openspec/changes/add-hough-circle-gui/`](openspec/changes/add-hough-circle-gui/)：图片工具，已实现并验收（13/13，2026-11-13 完成，2026-11-17 复核）。包含 `proposal.md`、`specs/hough-circle-gui/spec.md`、`design.md`、`tasks.md`。该 change 暂未归档，保留完整验收记录；评审通过后再同步到 `openspec/specs/`。
+- [`openspec/changes/add-video-detection/`](openspec/changes/add-video-detection/)：视频导入检测，规划完成、代码未开始（1/23 任务，仅规格校验已完成）。`tasks.md` 第 1 组是样例与解码器实测，接手从这里继续。
 
 ## 目录
 
