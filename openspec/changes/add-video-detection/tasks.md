@@ -2,8 +2,8 @@
 
 ## 当前状态
 
-- 规划完成，实现未开始：1/23 任务（仅 1.4 规格校验已执行）。
-- 除 1.4 外，本文件验收项均未执行；完成前不要勾选。
+- 规划完成，实现未开始：2/23 任务（1.4 规格校验、5.5 规划文档推送已执行）。
+- 除 1.4 和 5.5 外，本文件验收项均未执行；完成前不要勾选。
 - 现有图片流程仍以 `openspec/changes/add-hough-circle-gui/` 为准。
 
 ## 1. 规格与样例
@@ -42,11 +42,12 @@
 - [ ] 5.2 运行 `python3 -m unittest discover -s tests -v` 和 `openspec validate add-video-detection --strict`，把命令与结果写入 tasks.md 验收记录。
 - [ ] 5.3 更新 README 的当前状态、样例获取、验收结果与已知限制，确保接手人不需要读聊天记录即可复现。
 - [ ] 5.4 检查 `git status` 只包含本 change 相关文件；确认大视频、导出图和缓存未入库。
-- [ ] 5.5 在 `feat/video-detection` 分支提交并推送；用 `git status` 和 `git ls-remote origin` 确认远端分支存在。
+- [x] 5.5 在 `feat/video-detection` 分支提交并推送；用 `git status` 和 `git ls-remote origin` 确认远端分支存在。2026-11-17 已推送规划文档（提交 `1956a1f`）；实现完成后继续推送新提交。
 
 ## 验收记录
 
 - 2026-11-17：`openspec validate add-video-detection --strict` → valid（仅规划文档；实现后重跑）。
+- 2026-11-17：规划文档提交 `1956a1f` 已推送到 `origin/feat/video-detection`；`git ls-remote` 可见该分支。
 - 待实现后补充：样例视频信息、实测格式、逐帧圆数量、播放/定位/导出结果。
 
 ## 未验证事项

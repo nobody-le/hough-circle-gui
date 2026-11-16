@@ -2,7 +2,7 @@
 
 基于 OpenCV 的霍夫圆检测图形工具：导入实拍图片，调整检测参数，实时预览标注结果，并导出标注图。
 
-> 当前状态（2026-11-17）：图片模式已完成并验收；视频导入检测尚未实现，需求与实施步骤见 [`openspec/changes/add-video-detection/`](openspec/changes/add-video-detection/)。交付分支为 `feat/video-detection`；接手人先读该目录的 `tasks.md`，从第 1 组开始。
+> 当前状态（2026-11-17）：图片模式已完成并验收；视频导入检测尚未实现，需求与实施步骤见 [`openspec/changes/add-video-detection/`](openspec/changes/add-video-detection/)。交付分支为 `feat/video-detection`（规划提交 `1956a1f`）；接手人先读该目录的 `tasks.md`，从第 1 组开始。
 
 ## 功能
 
@@ -115,7 +115,7 @@ python3 -m unittest discover -s tests -v
 ## OpenSpec 记录
 
 - [`openspec/changes/add-hough-circle-gui/`](openspec/changes/add-hough-circle-gui/)：图片工具，已实现并验收（13/13，2026-11-13 完成，2026-11-17 复核）。包含 `proposal.md`、`specs/hough-circle-gui/spec.md`、`design.md`、`tasks.md`。该 change 暂未归档，保留完整验收记录；评审通过后再同步到 `openspec/specs/`。
-- [`openspec/changes/add-video-detection/`](openspec/changes/add-video-detection/)：视频导入检测，规划完成、代码未开始（1/23 任务，仅规格校验已完成）。`tasks.md` 第 1 组是样例与解码器实测，接手从这里继续。
+- [`openspec/changes/add-video-detection/`](openspec/changes/add-video-detection/)：视频导入检测，规划完成、代码未开始（2/23 任务：规格校验与规划文档推送已完成）。`tasks.md` 第 1 组是样例与解码器实测，接手从这里继续。
 
 ## 目录
 
